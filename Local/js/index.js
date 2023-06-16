@@ -10,21 +10,21 @@ console.log(JSON.stringify(ZoomMtg.checkSystemRequirements()));
 ZoomMtg.preLoadWasm();
 ZoomMtg.prepareWebSDK();
 
-const CLIENT_ID = "YOUR_CLIENT_ID_OR_SDK_KEY";
+const CLIENT_ID = "zejLunEQZeuHwMTO994pg";
 /**
  * NEVER PUT YOUR ACTUAL SDK SECRET OR CLIENT SECRET IN CLIENT SIDE CODE, THIS IS JUST FOR QUICK PROTOTYPING
  * The below generateSignature should be done server side as not to expose your sdk secret in public
  * You can find an eaxmple in here: https://developers.zoom.us/docs/meeting-sdk/auth/#signature
  */
-const CLIENT_SECRET = "YOUR_CLIENT_SECRET_OR_SDK_SECRET";
+const CLIENT_SECRET = "Smahkb1gJVC7JsVVeWSF4K3ABYoUTxNr";
 
 testTool = window.testTool;
-document.getElementById("display_name").value =
-  "Local" +
-  ZoomMtg.getWebSDKVersion()[0] +
-  testTool.detectOS() +
-  "#" +
-  testTool.getBrowserInfo();
+// document.getElementById("display_name").value =
+//   "Local" +
+//   ZoomMtg.getWebSDKVersion()[0] +
+//   testTool.detectOS() +
+//   "#" +
+//   testTool.getBrowserInfo();
 document.getElementById("meeting_number").value = testTool.getCookie(
   "meeting_number"
 );
@@ -55,6 +55,7 @@ document
       tmpMn = tmpMn.match(/([0-9]{9,11})/)[1];
     }
     let tmpPwd = e.target.value.match(/pwd=([\d,\w]+)/);
+    console.log(tmpPwd);
     if (tmpPwd) {
       document.getElementById("meeting_pwd").value = tmpPwd[1];
       testTool.setCookie("meeting_pwd", tmpPwd[1]);
